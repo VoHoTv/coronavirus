@@ -115,13 +115,13 @@ class Coronavirus_Public {
 
 	}
 
-	public function render_shortcode($atts = array(), $content) {
+	public function render_shortcode($atts) {
 		extract(shortcode_atts(array(
             'country' => '',
 		), $atts));
 
 		$country_data = $this->shared_functionality->get_corona_data($country);
 		$corona_data_options = json_decode(get_option('corona_data_options'), true);
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/shared-partials/coronavirus-info.php';
+		require plugin_dir_path( dirname( __FILE__ ) ) . 'includes/shared-partials/coronavirus-info.php';
 	}
 }
