@@ -25,7 +25,7 @@ $checkbox_ids = [
 
 $this->save_settings($checkbox_ids);
 
-$country_data = $this->get_corona_data('China');
+$country_data = $this->shared_functionality->get_corona_data('Italy');
 $corona_data_options = json_decode(get_option('corona_data_options'), true);
 ?>
 
@@ -71,17 +71,6 @@ $corona_data_options = json_decode(get_option('corona_data_options'), true);
         </div>
     </form>
 
-<article class="panel" style="max-width: 18rem; background-color: <?php echo get_option('general_background_color'); ?>;">
-  <p class="panel-heading" style=" color: <?php echo get_option('header_text_color'); ?>; background-color: <?php echo get_option('header_background_color'); ?>;">
-    <?php echo $country_data['country']; ?>
-  </p>
-  <div style="color: <?php echo get_option('general_text_color'); ?>;">
-  <?php foreach ($corona_data_options as $key => $option) : $pieces = preg_split('/(?=[A-Z])/',$key);?>
-                
-                <?php if ($option === 'on') : ?>
-                    <a class="panel-block"><?php echo $pieces[1] . " " . strtolower($pieces[0])  . ": $country_data[$key]"; ?></a>
-                <?php endif; ?>
-            <?php endforeach; ?>
-            </div>
-</article>
+    <?php require_once dirname(plugin_dir_path( dirname( __FILE__ ) )) . '/includes/shared-partials/coronavirus-info.php'; ?>
+
 </div>

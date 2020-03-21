@@ -52,6 +52,19 @@ class Coronavirus_Public {
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
+		$this->load_dependencies();
+	}
+
+	private function load_dependencies() {
+
+		/**
+		 * The class responsible which contains shared functionality between the admin area and 
+		 * public-facing side of the website.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-coronavirus-shared-functionality.php';
+
+		$this->shared_functionality = new Coronavirus_Shared_Functionality();
+
 	}
 
 	/**
@@ -106,21 +119,9 @@ class Coronavirus_Public {
 		extract(shortcode_atts(array(
             'country' => '',
 		), $atts));
-		require_once plugin_dir_path(__FILE__) . 'partials/coronavirus-info.php';
-	}
 
-	public function get_corona_data(string $country) {
-		$ch = curl_init();
-
-		curl_setopt($ch, CURLOPT_URL, 'https://coronavirus-19-api.herokuapp.com/countries');
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-
-		$response = json_decode(curl_exec($ch), true);
-
-		$country_data = $response[array_search($country, array_column($response, 'country'))];
-
-		curl_close($ch);
-
-		return $country_data;
+		$country_data = $this->shared_functionality->get_corona_data($country);
+		$corona_data_options = json_decode(get_option('corona_data_options'), true);
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/shared-partials/coronavirus-info.php';
 	}
 }
