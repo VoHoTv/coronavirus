@@ -75,6 +75,7 @@ class Coronavirus_Admin {
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/coronavirus-admin.css', array(), $this->version, 'all' );
 
+		wp_enqueue_style( 'bootstrap-css', plugin_dir_url( __FILE__ ) . 'css/bootstrap.min.css');
 	}
 
 	/**
@@ -100,4 +101,47 @@ class Coronavirus_Admin {
 
 	}
 
+	public function add_menu_page() {
+		add_menu_page( 'Coronavirus', 'Coronavirus', 'manage_options', 'coronavirus', [$this, 'render_menu_page'], 'dashicons-admin-site');
+	}
+
+	public function render_menu_page() {
+		require_once plugin_dir_path(__FILE__) . 'partials/coronavirus-settings.php';
+	}
+
+	public function save_settings($checkbox_ids) {
+		if (isset($_POST['save-settings'])) {
+			if (!empty($_POST['header-background-color'])) update_option('header_background_color', $_POST['header-background-color']);
+			if (!empty($_POST['header-text-color'])) update_option('header_text_color', $_POST['header-text-color']);
+			if (!empty($_POST['general-background-color'])) update_option('general_background_color', $_POST['general-background-color']);
+			if (!empty($_POST['general-text-color'])) update_option('general_text_color', $_POST['general-text-color']);
+
+			$corona_data_options = [];
+			foreach ($checkbox_ids as $id => $display_value) {
+				$corona_data_options[$id] = $_POST[$id];
+ 			} 
+			update_option('corona_data_options', json_encode($corona_data_options));
+		
+		} elseif (isset($_POST['reset-settings'])) {
+			delete_option('header_background_color');
+			delete_option('header_text_color');
+			delete_option('general_background_color');
+			delete_option('general_text_color');
+		}
+	}
+
+	public function get_corona_data(string $country) {
+		$ch = curl_init();
+
+		curl_setopt($ch, CURLOPT_URL, 'https://coronavirus-19-api.herokuapp.com/countries');
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+		$response = json_decode(curl_exec($ch), true);
+
+		$country_data = $response[array_search($country, array_column($response, 'country'))];
+
+		curl_close($ch);
+
+		return $country_data;
+	}
 }
