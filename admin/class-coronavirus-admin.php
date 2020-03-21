@@ -127,6 +127,7 @@ class Coronavirus_Admin {
 			if (!empty($_POST['header-text-color'])) update_option('header_text_color', $_POST['header-text-color']);
 			if (!empty($_POST['general-background-color'])) update_option('general_background_color', $_POST['general-background-color']);
 			if (!empty($_POST['general-text-color'])) update_option('general_text_color', $_POST['general-text-color']);
+			if (!empty($_POST['border-color'])) update_option('border_color', $_POST['border-color']);
 
 			$corona_data_options = [];
 			foreach ($checkbox_ids as $id => $display_value) {
@@ -139,6 +140,7 @@ class Coronavirus_Admin {
 			delete_option('header_text_color');
 			delete_option('general_background_color');
 			delete_option('general_text_color');
+			delete_option('border_color');
 		}
 	}
 }

@@ -6,8 +6,9 @@
   <?php foreach ($corona_data_options as $key => $option) : $pieces = preg_split('/(?=[A-Z])/',$key);?>
                 
                 <?php if ($option === 'on') : ?>
-                    <a class="panel-block"><?php echo $pieces[1] . " " . strtolower($pieces[0])  . ": $country_data[$key]"; ?></a>
+                    <a class="panel-block" style="border-color: <?php echo get_option('border_color'); ?>;"><?php echo $pieces[1] . " " . strtolower($pieces[0])  . ": $country_data[$key]"; ?></a>
                 <?php endif; ?>
             <?php endforeach; ?>
             </div>
 </article>
+
