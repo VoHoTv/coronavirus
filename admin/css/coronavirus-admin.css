@@ -187,16 +187,13 @@ color: #363636;
 color: #4a4a4a;
 }
 
-.panel-list a:hover {
-color: #3273dc;
-}
-
 .panel-block {
 align-items: center;
 color: #363636;
 display: flex;
 justify-content: flex-start;
 padding: 0.5em 0.75em!important;
+margin: 0!important;
 }
 
 .panel-block input[type="checkbox"] {
@@ -230,11 +227,6 @@ border-bottom-right-radius: 6px;
 a.panel-block,
 label.panel-block {
 cursor: pointer;
-}
-
-a.panel-block:hover,
-label.panel-block:hover {
-background-color: whitesmoke;
 }
 
 .panel-icon {

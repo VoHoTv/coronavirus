@@ -24,20 +24,20 @@ $checkbox_ids = [
 
 $this->save_settings($checkbox_ids);
 
-$country_data = $this->shared_functionality->get_corona_data('Italy');
+$country_data = $this->shared_functionality->get_corona_data('China');
 $corona_data_options = json_decode(get_option('corona_data_options'), true);
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
 
 <div class="container-fluid">
-    <h2><?php _e('Coronavirus Settings', 'coronavirus'); ?></h2>
+    <h1 class="font-weight-bold"><?php _e('Coronavirus Settings', 'coronavirus'); ?></h1>
 
-    <form class="mb-5" action="" method="POST">
+    <form class="mb-3 mt-2" action="" method="POST">
         <div class="row">
 
             <div class="col-12 col-md-6 col-xl-4">
-                <h3><?php _e('Modify the widgets color', 'coronavirus'); ?></h3>
+                <h4><?php _e('Modify the widgets color', 'coronavirus'); ?></h4>
                 <div class="form-group">
                     <label for="header-background-color"><?php _e('Header Background Color', 'coronavirus'); ?></label>
                     <input type="color" name="header-background-color" id="header-background-color" value="<?php echo empty(get_option('header_background_color')) ? '#F7F7F7': get_option('header_background_color'); ?>">
@@ -61,7 +61,7 @@ $corona_data_options = json_decode(get_option('corona_data_options'), true);
             </div>
 
             <div class="form-group col-12 col-md-6 col-xl-4">
-                <h3><?php _e('Choose what information to display', 'coronavirus'); ?></h3>
+                <h4><?php _e('Choose what information to display', 'coronavirus'); ?></h4>
                 <?php foreach ($checkbox_ids as $id => $display_value) : ?>
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="<?php echo $id; ?>" name="<?php echo $id; ?>" <?php if ($corona_data_options[$id] === 'on') echo 'checked'; ?>>

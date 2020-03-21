@@ -31,15 +31,13 @@ class Coronavirus_Shared_Functionality {
     public function get_corona_data(string $country) {
 		$ch = curl_init();
 
-		curl_setopt($ch, CURLOPT_URL, 'https://coronavirus-19-api.herokuapp.com/countries');
+		curl_setopt($ch, CURLOPT_URL, "https://coronavirus-19-api.herokuapp.com/countries/$country");
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
-		$response = json_decode(curl_exec($ch), true);
-
-		$country_data = $response[array_search($country, array_column($response, 'country'))];
+		$response = json_decode(curl_exec($ch));
 
 		curl_close($ch);
 
-		return $country_data;
+		return $response;
 	}
 }
