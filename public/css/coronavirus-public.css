@@ -194,6 +194,7 @@
   justify-content: flex-start;
   padding: 0.5em 0.75em!important;
   margin: 0!important;
+  font-weight: normal!important;
   }
   
   .panel-block input[type="checkbox"] {
