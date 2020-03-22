@@ -24,7 +24,7 @@ Some options you can choose are as following:
 You choose what data you want to display in the settings page. On top of that you also have the option to fully customize the widgets. 
 To display the widget you need to use the [coronavirus] shortcode, this will display the global data. 
 There is also an optional country attribute which you can use to display data about a specific country.
-Append the country attribute like this [coronavirus country="name_of_the_country"]. Usually the fully of the country with spaces where needed is required.
+Append the country attribute like this [coronavirus country="name_of_the_country"]. Usually the full name of the country with spaces where needed is required.
 A very select set of countries has been abbreviated to:
 
 * United States Of America = USA
@@ -39,7 +39,7 @@ A very select set of countries has been abbreviated to:
 
 == Frequently Asked Questions ==
 
-= Where does the coronavirus plugin gets it data from? =
+= Where does the coronavirus plugin get it data from? =
 
 The coronavirus plugin gets its data from https://github.com/javieraviles/covidAPI
 
