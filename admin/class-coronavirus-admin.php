@@ -121,21 +121,26 @@ class Coronavirus_Admin {
 		require_once plugin_dir_path(__FILE__) . 'partials/coronavirus-settings.php';
 	}
 
-	public function save_settings($checkbox_ids) {
+	public function save_settings(array $checkbox_ids) {
 		if (isset($_POST['save-settings'])) {
+			// Update color options.
 			if (!empty($_POST['header-background-color'])) update_option('header_background_color', $_POST['header-background-color']);
 			if (!empty($_POST['header-text-color'])) update_option('header_text_color', $_POST['header-text-color']);
 			if (!empty($_POST['general-background-color'])) update_option('general_background_color', $_POST['general-background-color']);
 			if (!empty($_POST['general-text-color'])) update_option('general_text_color', $_POST['general-text-color']);
 			if (!empty($_POST['border-color'])) update_option('border_color', $_POST['border-color']);
 
+			// Update options which choose what data to display. Get's the $_POST index from the $checkbox_ids array.
 			$corona_data_options = [];
 			foreach ($checkbox_ids as $id => $display_value) {
 				$corona_data_options[$id] = $_POST[$id];
- 			} 
+			}
+			 
+			// Save data options and its chosen value.
 			update_option('corona_data_options', json_encode($corona_data_options));
 		
 		} elseif (isset($_POST['reset-settings'])) {
+			// Delete color settings when user choses to reset to default config.
 			delete_option('header_background_color');
 			delete_option('header_text_color');
 			delete_option('general_background_color');

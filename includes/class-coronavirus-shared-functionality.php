@@ -27,11 +27,15 @@ class Coronavirus_Shared_Functionality {
 	 *
 	 * @since    1.0.0
 	 */
-    
+	
+	/**
+	 * Get the data of the API.
+	 */
     public function get_corona_data(string $country) {
 		$ch = curl_init();
 
 		$country_slug = str_replace(' ', '%20', $country);
+		// If country attribute is omitted display global data.
 		$url = empty($country) ? "https://coronavirus-19-api.herokuapp.com/all" : "https://coronavirus-19-api.herokuapp.com/countries/$country_slug";
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
