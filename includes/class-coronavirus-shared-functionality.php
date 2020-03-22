@@ -31,7 +31,8 @@ class Coronavirus_Shared_Functionality {
     public function get_corona_data(string $country) {
 		$ch = curl_init();
 
-		$url = empty($country) ? "https://coronavirus-19-api.herokuapp.com/all" : "https://coronavirus-19-api.herokuapp.com/countries/$country";
+		$country_slug = str_replace(' ', '%20', $country);
+		$url = empty($country) ? "https://coronavirus-19-api.herokuapp.com/all" : "https://coronavirus-19-api.herokuapp.com/countries/$country_slug";
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
