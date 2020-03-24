@@ -124,16 +124,16 @@ class Coronavirus_Admin {
 	public function save_settings(array $checkbox_ids) {
 		if (isset($_POST['save-settings'])) {
 			// Update color options.
-			if (!empty($_POST['header-background-color'])) update_option('header_background_color', $_POST['header-background-color']);
-			if (!empty($_POST['header-text-color'])) update_option('header_text_color', $_POST['header-text-color']);
-			if (!empty($_POST['general-background-color'])) update_option('general_background_color', $_POST['general-background-color']);
-			if (!empty($_POST['general-text-color'])) update_option('general_text_color', $_POST['general-text-color']);
-			if (!empty($_POST['border-color'])) update_option('border_color', $_POST['border-color']);
+			if (!empty($_POST['header-background-color'])) update_option('header_background_color', sanitize_hex_color($_POST['header-background-color']));
+			if (!empty($_POST['header-text-color'])) update_option('header_text_color', sanitize_hex_color($_POST['header-text-color']));
+			if (!empty($_POST['general-background-color'])) update_option('general_background_color', sanitize_hex_color($_POST['general-background-color']));
+			if (!empty($_POST['general-text-color'])) update_option('general_text_color', sanitize_hex_color($_POST['general-text-color']));
+			if (!empty($_POST['border-color'])) update_option('border_color', sanitize_hex_color($_POST['border-color']));
 
 			// Update options which choose what data to display. Get's the $_POST index from the $checkbox_ids array.
 			$corona_data_options = [];
 			foreach ($checkbox_ids as $id => $display_value) {
-				$corona_data_options[$id] = $_POST[$id];
+				$corona_data_options[$id] = sanitize_option('corona_data_options', $_POST[$id]);
 			}
 			 
 			// Save data options and its chosen value.
