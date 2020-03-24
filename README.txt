@@ -31,6 +31,10 @@ A very select set of countries has been abbreviated to:
 * United Kingdom = UK
 * South Korea = S. Korea
 
+The coronavirus pugin relies on the API by javieraviles for all it's data.
+The API its Github page: https://github.com/javieraviles/covidAPI
+The API its license: https://github.com/javieraviles/covidAPI/blob/master/LICENSE
+
 == Installation ==
 
 1. Upload `coronavirus.php` to the `/wp-content/plugins/` directory
