@@ -122,30 +122,37 @@ class Coronavirus_Admin {
 	}
 
 	public function save_settings(array $checkbox_ids) {
-		if (isset($_POST['save-settings'])) {
-			// Update color options.
-			if (!empty($_POST['header-background-color'])) update_option('header_background_color', sanitize_hex_color($_POST['header-background-color']));
-			if (!empty($_POST['header-text-color'])) update_option('header_text_color', sanitize_hex_color($_POST['header-text-color']));
-			if (!empty($_POST['general-background-color'])) update_option('general_background_color', sanitize_hex_color($_POST['general-background-color']));
-			if (!empty($_POST['general-text-color'])) update_option('general_text_color', sanitize_hex_color($_POST['general-text-color']));
-			if (!empty($_POST['border-color'])) update_option('border_color', sanitize_hex_color($_POST['border-color']));
+		/**
+		 * If user can manage_options/is admin, save the settings.
+		 */
+		if(current_user_can('manage_options')) {
 
-			// Update options which choose what data to display. Get's the $_POST index from the $checkbox_ids array.
-			$corona_data_options = [];
-			foreach ($checkbox_ids as $id => $display_value) {
-				$corona_data_options[$id] = sanitize_option('corona_data_options', $_POST[$id]);
+			if (isset($_POST['save-settings'])) {
+				// Update color options.
+				if (!empty($_POST['header-background-color'])) update_option('header_background_color', sanitize_hex_color($_POST['header-background-color']));
+				if (!empty($_POST['header-text-color'])) update_option('header_text_color', sanitize_hex_color($_POST['header-text-color']));
+				if (!empty($_POST['general-background-color'])) update_option('general_background_color', sanitize_hex_color($_POST['general-background-color']));
+				if (!empty($_POST['general-text-color'])) update_option('general_text_color', sanitize_hex_color($_POST['general-text-color']));
+				if (!empty($_POST['border-color'])) update_option('border_color', sanitize_hex_color($_POST['border-color']));
+
+				// Update options which choose what data to display. Get's the $_POST index from the $checkbox_ids array.
+				$corona_data_options = [];
+				foreach ($checkbox_ids as $id => $display_value) {
+					$corona_data_options[$id] = sanitize_option('corona_data_options', $_POST[$id]);
+				}
+				
+				// Save data options and its chosen value.
+				update_option('corona_data_options', $corona_data_options);
+			
+			} elseif (isset($_POST['reset-settings'])) {
+				// Delete color settings when user choses to reset to default config.
+				delete_option('header_background_color');
+				delete_option('header_text_color');
+				delete_option('general_background_color');
+				delete_option('general_text_color');
+				delete_option('border_color');
 			}
-			 
-			// Save data options and its chosen value.
-			update_option('corona_data_options', $corona_data_options);
-		
-		} elseif (isset($_POST['reset-settings'])) {
-			// Delete color settings when user choses to reset to default config.
-			delete_option('header_background_color');
-			delete_option('header_text_color');
-			delete_option('general_background_color');
-			delete_option('general_text_color');
-			delete_option('border_color');
+
 		}
 	}
 }
