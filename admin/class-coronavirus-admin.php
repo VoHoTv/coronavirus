@@ -138,7 +138,7 @@ class Coronavirus_Admin {
 				// Update options which choose what data to display. Get's the $_POST index from the $checkbox_ids array.
 				$corona_data_options = [];
 				foreach ($checkbox_ids as $id => $display_value) {
-					$corona_data_options[$id] = sanitize_option('corona_data_options', $_POST[$id]);
+					$corona_data_options[$id] = sanitize_key('corona_data_options', $_POST[$id]);
 				}
 				
 				// Save data options and its chosen value.
