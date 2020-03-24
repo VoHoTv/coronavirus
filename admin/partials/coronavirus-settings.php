@@ -26,7 +26,8 @@ $checkbox_ids = [
 $this->save_settings($checkbox_ids);
 
 $country_data = $this->shared_functionality->get_corona_data('China');
-$corona_data_options = json_decode(get_option('corona_data_options'), true);
+$corona_data_options = get_option('corona_data_options');
+print_r($corona_data_options);
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->

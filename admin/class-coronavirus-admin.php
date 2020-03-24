@@ -137,7 +137,7 @@ class Coronavirus_Admin {
 			}
 			 
 			// Save data options and its chosen value.
-			update_option('corona_data_options', json_encode($corona_data_options));
+			update_option('corona_data_options', $corona_data_options);
 		
 		} elseif (isset($_POST['reset-settings'])) {
 			// Delete color settings when user choses to reset to default config.

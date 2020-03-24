@@ -125,7 +125,7 @@ class Coronavirus_Public {
 
 		$country_data = $this->shared_functionality->get_corona_data($country);
 		// Contains which options the user wants to display.
-		$corona_data_options = json_decode(get_option('corona_data_options'), true);
+		$corona_data_options = get_option('corona_data_options');
 		require plugin_dir_path( dirname( __FILE__ ) ) . 'includes/shared-partials/coronavirus-info.php';
 	}
 }
