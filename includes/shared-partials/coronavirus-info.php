@@ -15,7 +15,9 @@
     <!-- If the country attribute is omitted -->      
     <?php elseif (empty($country_data->country)) : ?>
         <?php foreach ($country_data as $key => $value) : ?>
-            <label class="panel-block" style="border-color: <?php echo esc_attr(get_option('border_color')); ?>; color: <?php echo esc_attr(get_option('general_text_color')); ?>!important;"><?php echo ucfirst($key) . ": $value"; ?></label>
+            <?php if ($key !== 'updated') : ?>
+              <label class="panel-block" style="border-color: <?php echo esc_attr(get_option('border_color')); ?>; color: <?php echo esc_attr(get_option('general_text_color')); ?>!important;"><?php echo ucfirst($key) . ": $value"; ?></label>
+            <?php endif; ?>    
         <?php endforeach; ?>
         <?php break;?>
     <?php endif; ?>

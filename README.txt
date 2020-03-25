@@ -31,9 +31,9 @@ A very select set of countries has been abbreviated to:
 * United Kingdom = UK
 * South Korea = S. Korea
 
-The coronavirus pugin relies on the API by javieraviles for all it's data.
-The API its Github page: https://github.com/javieraviles/covidAPI
-The API its license: https://github.com/javieraviles/covidAPI/blob/master/LICENSE
+The coronavirus pugin relies on the API by NovelCOVID for all it's data.
+The API its Github page: https://github.com/novelcovid/api
+The API its privacy policy: https://github.com/NovelCOVID/API/blob/master/privacy.md
 
 == Installation ==
 
@@ -45,7 +45,7 @@ The API its license: https://github.com/javieraviles/covidAPI/blob/master/LICENS
 
 = Where does the coronavirus plugin get it data from? =
 
-The coronavirus plugin gets its data from https://github.com/javieraviles/covidAPI
+The coronavirus plugin gets its data from https://github.com/novelcovid/api
 
 = Can I choose to see the data of a specific country? =
 

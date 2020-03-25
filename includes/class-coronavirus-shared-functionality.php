@@ -35,7 +35,7 @@ class Coronavirus_Shared_Functionality {
 		$country_slug = str_replace(' ', '%20', $country);
 		
 		// // If country attribute is omitted display global data.
-		$url = empty($country) ? "https://coronavirus-19-api.herokuapp.com/all" : "https://coronavirus-19-api.herokuapp.com/countries/$country_slug";
+		$url = empty($country) ? "https://corona.lmao.ninja/all" : "https://corona.lmao.ninja/countries/$country_slug";
 
 		$response = wp_remote_get( $url );
 		$body = json_decode(wp_remote_retrieve_body( $response ));
