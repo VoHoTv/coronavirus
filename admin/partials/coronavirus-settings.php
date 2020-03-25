@@ -35,7 +35,7 @@ $corona_data_options = get_option('corona_data_options');
 
     <form class="mb-3 mt-2" action="" method="POST">
         <div class="row">
-
+            <?php wp_nonce_field('submit-settings'); ?>
             <div class="col-12 col-md-6 col-xl-4">
                 <h4><?php _e('Modify the widgets color', 'coronavirus'); ?></h4>
                 <div class="form-group">
