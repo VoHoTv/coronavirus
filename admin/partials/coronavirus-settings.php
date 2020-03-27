@@ -75,6 +75,16 @@ $corona_data_options = get_option('corona_data_options');
             </div>
 
         </div>
+
+        <div class="row">
+            <div class="form-group col-12 col-md-6 col-xl-4">
+                <h4><?php _e('Additional settings', 'coronavirus'); ?></h4>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="display-flag" name="display-flag" <?php if (get_option('display_flag') === 'on') echo 'checked'; ?>>
+                        <label class="custom-control-label" for="display-flag">Display country flag</label>
+                    </div>
+            </div>
+        </div>
         <div class="btn-group">
             <button type="submit" class="btn btn-success" name="save-settings"><?php _e('Save', 'coronavirus'); ?></button>       
             <button type="submit" class="btn btn-danger" name="reset-settings"><?php _e('Reset to default config', 'coronavirus'); ?></button>       

@@ -1,5 +1,8 @@
 <article class="panel" style="max-width: 220px; background-color: <?php echo esc_attr(get_option('general_background_color')); ?>;">
-  <p class="panel-heading" style=" color: <?php echo esc_attr(get_option('header_text_color')); ?>; background-color: <?php echo esc_attr(get_option('header_background_color')); ?>;">
+  <p class="panel-heading" style="color: <?php echo esc_attr(get_option('header_text_color')); ?>; background-color: <?php echo esc_attr(get_option('header_background_color')); ?>;">
+    <!-- Display flag if display_flag option is checked AND if its not displaying global data to prevent an image without src -->
+    <?php // ?>
+    <?php if (get_option('display_flag') === 'on' && !empty($country_data->country)) :?><img src="<?php echo esc_url($country_data->countryInfo->flag); ?>" style="width: 35px; margin-right: 6px;"><?php endif;?>
     <?php echo empty($country_data->country) ? __('Globally', 'coronavirus') : esc_html__($country_data->country, 'coronavirus'); ?>
   </p>
   <div>

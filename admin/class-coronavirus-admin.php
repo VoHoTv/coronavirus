@@ -140,6 +140,9 @@ class Coronavirus_Admin {
 				foreach ($checkbox_ids as $id => $display_value) {
 					$corona_data_options[$id] = sanitize_key($_POST[$id]);
 				}
+
+				// Update whether to display flag or not 
+				update_option('display_flag', sanitize_key($_POST['display-flag']));
 				
 				// Save data options and its chosen value.
 				update_option('corona_data_options', $corona_data_options);

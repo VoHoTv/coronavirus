@@ -163,6 +163,8 @@ font-weight: 700!important;
 line-height: 1.25;
 padding: 12px 12px!important;
 margin: 0!important;
+display: flex;
+align-items: center;
 }
 
 .panel-tabs {
