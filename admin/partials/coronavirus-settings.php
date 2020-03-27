@@ -12,6 +12,9 @@
  * @subpackage Coronavirus/admin/partials
  */
 
+/**
+ * If you want to add a new value from the API add a new element like this: $keyInApi => $Display value
+ */
 $checkbox_ids = [
     'cases' => __('Total cases', 'coronavirus'), 
     'todayCases' => __('Today\'s cases', 'coronavirus'),
@@ -20,7 +23,8 @@ $checkbox_ids = [
     'recovered' => __('Recovered', 'coronavirus'),
     'active' => __('Active cases', 'coronavirus'),
     'critical' => __('Critical', 'coronavirus'),
-    'casesPerOneMillion' => __('Cases per one million', 'coronavirus')
+    'casesPerOneMillion' => __('Cases per one million', 'coronavirus'),
+    'deathsPerOneMillion' => __('Deaths per one million', 'coronavirus')
 ];
 
 $this->save_settings($checkbox_ids);
