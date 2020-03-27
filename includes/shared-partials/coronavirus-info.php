@@ -1,4 +1,4 @@
-<article class="panel" style="max-width: 18rem; background-color: <?php echo esc_attr(get_option('general_background_color')); ?>;">
+<article class="panel" style="max-width: 220px; background-color: <?php echo esc_attr(get_option('general_background_color')); ?>;">
   <p class="panel-heading" style=" color: <?php echo esc_attr(get_option('header_text_color')); ?>; background-color: <?php echo esc_attr(get_option('header_background_color')); ?>;">
     <?php echo empty($country_data->country) ? __('Globally', 'coronavirus') : esc_html__($country_data->country, 'coronavirus'); ?>
   </p>
