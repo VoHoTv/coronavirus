@@ -81,6 +81,46 @@ $corona_data_options = get_option('corona_data_options');
         </div>
     </form>
 
-    <?php require_once dirname(plugin_dir_path( dirname( __FILE__ ) )) . '/includes/shared-partials/coronavirus-info.php'; ?>
+    <div class="row">
+        <div class="col-12 col-xl-3 mb-5 mb-xl-0">
+            <?php require_once dirname(plugin_dir_path( dirname( __FILE__ ) )) . '/includes/shared-partials/coronavirus-info.php'; ?>
+        </div>
+        <div class="col-12 col-xl-5 ml-auto">
 
+            <h1>How to add the widget?</h1>
+            <p>To add the widget on your site put the shortcode &#40Including the surrounding brackets&#41; in a post or page its text. See the picture for an example &#40Click to enlarge&#41. 
+                If you still need more info please see <a href="https://www.wpbeginner.com/wp-tutorials/how-to-add-a-shortcode-in-wordpress/" target="_blank">this guide </a> for a detailed explanation.
+
+            </p>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">Description</th>
+                    <th scope="col"  style="width: 250px">Shortcode</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <th scope="row">Display global data</th>
+                    <td>[coronavirus]</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">Display data by country <small class="text-muted">quotation marks are mandatory, country name is not case sensitive</small></th>
+                    <td>[coronavirus country="china"]</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="col-12 col-xl-4 my-auto">
+            <a href="https://i.gyazo.com/3cd44e40660bef39d3e6f86fcb7f1b63.png" target="_blank">
+                <img src="https://i.gyazo.com/3cd44e40660bef39d3e6f86fcb7f1b63.png" class="img-fluid p-2 bg-secondary">
+            </a>
+        </div>
+    </div>
+
+    <div class=" row mt-3">
+        
+    </div>
 </div>
