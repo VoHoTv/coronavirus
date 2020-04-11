@@ -125,7 +125,7 @@ class Coronavirus_Admin {
 		/**
 		 * If user can manage_options/is admin and matches the forms nonce, save the settings.
 		 */
-		if (current_user_can('manage_options') && wp_verify_nonce($_POST['_wpnonce'], 'submit-settings')) {
+		if (current_user_can('manage_options') && isset($_POST['_wpnonce']) && wp_verify_nonce($_POST['_wpnonce'], 'submit-settings')) {
 			if (isset($_POST['save-settings']) ) {
 				
 				// Update color options.
