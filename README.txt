@@ -51,3 +51,9 @@ The coronavirus plugin gets its data from https://github.com/novelcovid/api
 
 Yes, you can display the data of a specific country by adding the country attribute to the shortcode like this [coronavirus country="name_of_the_country"]. 
 Look at the description for more information.
+
+== Changelog ==
+
+= 1.3.0 =
+* Errors when saving options has been fixed.
+* Selected options now get deleted from the database when the plugin is deactivated.
