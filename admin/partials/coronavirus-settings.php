@@ -30,7 +30,7 @@ $checkbox_ids = [
 ];
 
 $this->save_settings($checkbox_ids);
-$country_data = $this->shared_functionality->get_corona_data('China');
+$country_data = $this->shared_functionality->get_corona_data('usa');
 $corona_data_options = get_option('corona_data_options');
 ?>
 
@@ -119,7 +119,7 @@ $corona_data_options = get_option('corona_data_options');
                     </tr>
                     <tr>
                     <th scope="row">Display data by country <small class="text-muted">quotation marks are mandatory, country name is not case sensitive</small></th>
-                    <td>[coronavirus country="china"]</td>
+                    <td>[coronavirus country="usa"]</td>
                     </tr>
                 </tbody>
             </table>

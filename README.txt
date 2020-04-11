@@ -57,3 +57,5 @@ Look at the description for more information.
 = 1.3.0 =
 * Errors when saving options has been fixed.
 * Selected options now get deleted from the database when the plugin is deactivated.
+* Added option to display total tests and tests per one million.
+* Fixed bug which could lead to the wrong country data being displayed.
