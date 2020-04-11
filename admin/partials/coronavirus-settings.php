@@ -24,7 +24,9 @@ $checkbox_ids = [
     'active' => __('Active cases', 'coronavirus'),
     'critical' => __('Critical', 'coronavirus'),
     'casesPerOneMillion' => __('Cases per one million', 'coronavirus'),
-    'deathsPerOneMillion' => __('Deaths per one million', 'coronavirus')
+    'deathsPerOneMillion' => __('Deaths per one million', 'coronavirus'),
+    'tests' => __('Tests', 'coronavirus'),
+    'testsPerOneMillion' => __('Tests per one million', 'coronavirus')
 ];
 
 $this->save_settings($checkbox_ids);
