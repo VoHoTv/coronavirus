@@ -156,6 +156,9 @@ class Coronavirus_Admin {
 				delete_option('general_text_color');
 				delete_option('border_color');
 				
+				delete_option('corona_data_options');
+
+				delete_option('display_flag');
 			}
 		}
 	}
