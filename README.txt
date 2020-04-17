@@ -54,6 +54,18 @@ Look at the description for more information.
 
 == Changelog ==
 
+= 1.3.4 =
+* Updated the API to the v2 endpoint. All data should now be displayed again.
+
+= 1.3.3 =
+* Fixed a bug which incorrectly rendered the admin page for the coronavirus plugin.
+
+= 1.3.2 =
+* CSS now only gets added to the plugin admin page to avoid conflicts.
+
+= 1.3.1 =
+* Coronavirus is now compatible with WordPress version 5.4
+
 = 1.3.0 =
 * Errors when saving options has been fixed.
 * Selected options now get deleted from the database when the plugin is deactivated.
