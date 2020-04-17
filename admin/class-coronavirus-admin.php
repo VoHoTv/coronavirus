@@ -71,7 +71,7 @@ class Coronavirus_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_styles() {
+	public function enqueue_styles($hook) {
 
 		/**
 		 * This function is provided for demonstration purposes only.
@@ -85,9 +85,12 @@ class Coronavirus_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/coronavirus-admin.css', array(), $this->version, 'all' );
+		if ($hook === 'toplevel_page_coronavirus') {
+			wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/coronavirus-admin.css', array(), $this->version, 'all' );
 
-		wp_enqueue_style( 'bootstrap-css', plugin_dir_url( __FILE__ ) . 'css/bootstrap.min.css');
+			wp_enqueue_style( 'bootstrap-css', plugin_dir_url( __FILE__ ) . 'css/bootstrap.min.css');
+		}
+
 	}
 
 	/**
