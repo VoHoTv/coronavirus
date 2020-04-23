@@ -16,7 +16,7 @@
  * Plugin Name:       Coronavirus
  * Plugin URI:        https://github.com/VoHoTv/coronavirus
  * Description:       Display data about the coronavirus.
- * Version:           1.3.4
+ * Version:           1.3.5
  * Author:            Mike Zuidhoek
  * Author URI:        https://mikezuidhoek.com/
  * License:           GPL-2.0+
@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'CORONAVIRUS_VERSION', '1.3.4' );
+define( 'CORONAVIRUS_VERSION', '1.3.5' );
 
 /**
  * The code that runs during plugin activation.

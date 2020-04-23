@@ -54,6 +54,9 @@ Look at the description for more information.
 
 == Changelog ==
 
+= 1.3.5 =
+* Changed to different API endpoint to fix the issue of empty widgets.
+
 = 1.3.4 =
 * Updated the API to the v2 endpoint. All data should now be displayed again.
 
