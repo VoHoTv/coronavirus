@@ -35,9 +35,13 @@ class Coronavirus_Shared_Functionality {
 		$country_slug = str_replace(' ', '%20', $country);
 		
 		// // If country attribute is omitted display global data.
-		$url = empty($country) ? "https://corona.lmao.ninja/v2/all" : "https://corona.lmao.ninja/v2/countries/$country_slug?strict=true";
+		$url = empty($country) ? "https://ev3klr6bchdcdowp.disease.sh/v2/all" : "https://ev3klr6bchdcdowp.disease.sh/v2/countries/$country_slug";
 
-		$response = wp_remote_get( $url );
+		// Add unique user agent, requested by the COVID API team.
+		$response = wp_remote_get( $url, array(
+			'user-agent' => 'Coronavirus/1.0.0'
+		));
+		
 		$body = json_decode(wp_remote_retrieve_body( $response ));
 
 		return $body;
