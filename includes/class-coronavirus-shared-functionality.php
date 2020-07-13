@@ -35,7 +35,7 @@ class Coronavirus_Shared_Functionality {
 		$country_slug = str_replace(' ', '%20', $country);
 		
 		// // If country attribute is omitted display global data.
-		$url = empty($country) ? "https://ev3klr6bchdcdowp.disease.sh/v2/all" : "https://ev3klr6bchdcdowp.disease.sh/v2/countries/$country_slug";
+		$url = empty($country) ? "https://ev3klr6bchdcdowp.disease.sh/v3/covid-19/all" : "https://ev3klr6bchdcdowp.disease.sh/v3/covid-19/countries/$country_slug";
 
 		// Add unique user agent, requested by the COVID API team.
 		$response = wp_remote_get( $url, array(
