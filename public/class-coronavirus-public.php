@@ -127,10 +127,17 @@ class Coronavirus_Public {
 		// Contains which options the user wants to display.
 		$corona_data_options = get_option('corona_data_options');
 
-		ob_start();
-			require plugin_dir_path( dirname( __FILE__ ) ) . 'includes/shared-partials/coronavirus-info.php';
-		$template = ob_get_clean();
+        // Display error when a message is in the response, usually caused by using a wrong country name.
+        if(!empty($country_data->message)) {
+            ob_start();
+            require plugin_dir_path( __FILE__ ) . 'partials/error.php';
+            
+            return ob_get_clean();
+        }
 
-		return $template;
+		ob_start();
+		require plugin_dir_path( dirname( __FILE__ ) ) . 'includes/shared-partials/coronavirus-info.php';
+
+		return ob_get_clean();
 	}
 }
