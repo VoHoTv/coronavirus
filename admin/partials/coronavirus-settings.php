@@ -70,7 +70,7 @@ $corona_data_options = get_option('corona_data_options');
                 <h4><?php _e('Choose what information to display', 'coronavirus'); ?></h4>
                 <?php foreach ($checkbox_ids as $id => $display_value) : ?>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="<?php echo esc_attr($id); ?>" name="<?php echo esc_attr($id); ?>" <?php if ($corona_data_options[$id] === 'on') echo 'checked'; ?>>
+                        <input type="checkbox" class="custom-control-input" id="<?php echo esc_attr($id); ?>" name="<?php echo esc_attr($id); ?>" <?php if (!empty($corona_data_options) && $corona_data_options[$id] === 'on') echo 'checked'; ?>>
                         <label class="custom-control-label" for="<?php echo esc_attr($id); ?>"><?php echo $display_value; ?></label>
                     </div>
                 <?php endforeach; ?>
