@@ -30,7 +30,13 @@ class Coronavirus_Deactivator {
 	 * @since    1.0.0
 	 */
 	public static function deactivate() {
-
+		delete_option('display_flag');
+		delete_option('corona_data_options');
+		delete_option('header_background_color');
+		delete_option('header_text_color');
+		delete_option('general_background_color');
+		delete_option('general_text_color');
+		delete_option('border_color');
 	}
 
 }
