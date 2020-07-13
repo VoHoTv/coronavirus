@@ -1,7 +1,7 @@
 === Plugin Name ===
 Contributors: vohotv
 Tags: coronavirus, virus
-Tested up to: 5.4
+Tested up to: 5.4.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -53,6 +53,12 @@ Yes, you can display the data of a specific country by adding the country attrib
 Look at the description for more information.
 
 == Changelog ==
+
+= 2.0.0 =
+* Upgraded to the v3 API endpoint.
+* Front-end now shows error when country is not found.
+* Added a check around the corona_data_options which fixes the errors being displayed besides the checkboxes on the admin page when activating the plugin for the first time.
+* If you decide to uninstall the coronavirus plugin :( It now deletes all options you chose on the admin page.
 
 = 1.3.5 =
 * Changed to different API endpoint to fix the issue of empty widgets.
